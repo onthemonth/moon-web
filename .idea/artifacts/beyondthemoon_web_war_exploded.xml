@@ -1,0 +1,67 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="beyondthemoon-web:war exploded">
+    <output-path>$PROJECT_DIR$/target/com.moon</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="beyondthemoon-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.fs:falcon-netty-core:1.2-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.jboss.netty:netty:3.2.10.Final" />
+          <element id="library" level="project" name="Maven: org.apache.curator:curator-framework:2.4.2" />
+          <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.5" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.15" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
+          <element id="library" level="project" name="Maven: org.apache.curator:curator-client:2.4.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.4" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.12.6" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:18.0" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.3" />
+          <element id="library" level="project" name="Maven: com.caucho:hessian:3.1.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.8.5" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.8.5" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: javax.servlet:jsp-api:2.0" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.2" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.16" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: com.leya:ly-service-api:0.0.4-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: net.sf.json-lib:json-lib:jdk15:2.1" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.7.0" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.3" />
+          <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.3" />
+          <element id="library" level="project" name="Maven: com.leya:ly-sdk:1.0-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.3" />
+          <element id="library" level="project" name="Maven: commons-net:commons-net:3.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.8" />
+          <element id="library" level="project" name="Maven: com.leya:ly-service-enitys:0.0.4-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.leya:ly-weixin-api:0.0.2-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: com.leya:ly-sso:1.3-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.leya:memcacheClient:1.0-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: net.spy:spymemcached:2.9.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="beyondthemoon-web/web/Web" />
+    </root>
+  </artifact>
+</component>
