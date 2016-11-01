@@ -2,12 +2,19 @@ package com.mo.action;
 
 
 import com.mo.vo.HelloVo;
+import com.moon.auth.entity.Depart;
+import com.moon.dubbo.test.IDemoService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +26,13 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by fanshuai on 15/4/18.
+ * Created by maguoqiang on 16/4/18.
+ *
  */
 @Controller
 public class TestAction {
-
+    @Resource(name = "demoService")
+    private IDemoService demoService;
     @RequestMapping(value = "/",method = RequestMethod.GET)
     @ResponseBody
     public String index(@RequestParam(value = "signature", required = false)String signature,
@@ -179,4 +188,11 @@ public class TestAction {
         return names;
     }
 
+
+    @RequestMapping(value = "/test/dubbo",method = RequestMethod.GET)
+    @ResponseBody
+    public Depart testDubbo(String parama){
+        Depart d = this.demoService.sayHello(parama);
+        return d;
+    }
 }
