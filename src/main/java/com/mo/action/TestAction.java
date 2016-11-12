@@ -97,6 +97,7 @@ public class TestAction {
     public ModelAndView test(HttpServletRequest request,HttpServletResponse response){
         System.out.println();
         Cookie c=new Cookie("Customer","huangxp");
+        System.out.println("12345");
         c.setPath("/test");
         c.setMaxAge(123456879);
         response.addCookie(c);
