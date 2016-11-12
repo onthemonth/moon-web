@@ -96,6 +96,7 @@ public class TestAction {
     @RequestMapping(value = "/test/ftl")
     public ModelAndView test(HttpServletRequest request,HttpServletResponse response){
         System.out.println();
+        System.out.println();
         Cookie c=new Cookie("Customer","huangxp");
         c.setPath("/test");
         c.setMaxAge(123456879);
