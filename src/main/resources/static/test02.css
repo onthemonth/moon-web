@@ -1,0 +1,10 @@
+.outer{
+    background-color:coral;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+.inner{
+    background-color: aquamarine ;
+
+}

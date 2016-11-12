@@ -1,7 +1,10 @@
 package com.mo.action;
 
 
+import com.alibaba.dubbo.common.json.JSON;
+import com.mo.vo.CityVo;
 import com.mo.vo.HelloVo;
+import com.mo.vo.ReturnVo;
 import com.moon.auth.entity.Depart;
 import com.moon.dubbo.test.IDemoService;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -18,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -105,7 +109,7 @@ public class TestAction {
         view.addObject("strl",s);
         view.addObject("bb","bbb");
         view.addObject("ooo", new OOO("afa", "safd"));
-        List<OOO> oool = new ArrayList<>();
+        List<OOO> oool = new ArrayList<OOO>();
         oool.add(new OOO("afa","safd"));
         oool.add(new OOO("afa", "safd"));
         view.addObject("date",new Date());
@@ -193,6 +197,88 @@ public class TestAction {
     @ResponseBody
     public Depart testDubbo(String parama){
         Depart d = this.demoService.sayHello(parama);
+        System.out.println("经过第一台机器");
         return d;
     }
+    @RequestMapping(value = "/test/toLogin",method = RequestMethod.GET)
+    public ModelAndView toLogin(){
+        ModelAndView mv=new ModelAndView("test03");
+        return mv;
+    }
+    @RequestMapping(value = "/test/verifyMobile",method = RequestMethod.GET)
+    public ModelAndView verifyMobile(){
+        ModelAndView mv=new ModelAndView("test04");
+        List<CityVo> cityVos=new ArrayList<CityVo>();
+        for (int i=0;i<35;i++){
+            CityVo cityVo=new CityVo();
+            cityVo.setCityId(i+"");
+            cityVo.setCityName("城市名称" + i);
+            cityVos.add(cityVo);
+        }
+        mv.addObject("cities", cityVos);
+
+        return mv;
+    }
+
+    /**
+     * {"cityVo":{"cityName":"a","cityId":"1"},"cityVo":{"cityName":"a","cityId":"1"}}
+     * @return
+     */
+    @RequestMapping(value = "/test/getCity")
+    @ResponseBody
+    public ReturnVo getCity() throws IOException {
+        List<CityVo> cityVos=new ArrayList<CityVo>();
+        for (int i=0;i<35;i++){
+            CityVo cityVo=new CityVo();
+            cityVo.setCityId(i+"");
+            cityVo.setCityName("城市名称" + i);
+            cityVos.add(cityVo);
+        }
+        ReturnVo returnVo=new ReturnVo();
+        returnVo.setCode("00");
+        returnVo.setData(cityVos);
+
+        ReturnVo returnVo1=new ReturnVo();
+        returnVo1.setCode("00");
+        returnVo1.setMessage("成功");
+        returnVo1.setData(returnVo);
+
+        String s=JSON.json(returnVo1);
+        System.out.println(s);
+        return returnVo1;
+    }
+    @RequestMapping(value = "/test/testLogin",method = RequestMethod.GET)
+    @ResponseBody
+    //{"code":"00","message":"mesesag"}
+    public ReturnVo testLogin(String username,String password){
+        ReturnVo vo=new ReturnVo();
+        if (StringUtils.isBlank(username)){
+            vo.setCode("01");
+            vo.setMessage("用户名为空");
+            return vo;
+        }
+        if (StringUtils.isBlank(password)){
+            vo.setCode("02");
+            vo.setMessage("密码为空");
+            return vo;
+        }
+        if (!"1234".equals(username)){
+            vo.setCode("03");
+            vo.setMessage("用户名错误");
+            return vo;
+        }
+        if (!"1234".equals(password)){
+            vo.setCode("01");
+            vo.setMessage("密码错误");
+            return vo;
+        }
+        vo.setCode("00");
+        vo.setMessage("登录成功");
+        return vo;
+    }
+   /* @RequestMapping(value = "/test/index")
+    public ModelAndView index(){
+        ModelAndView mv=new ModelAndView();
+        mv.
+    }*/
 }
