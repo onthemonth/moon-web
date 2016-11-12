@@ -98,6 +98,7 @@ public class TestAction {
         System.out.println();
         System.out.println();
         Cookie c=new Cookie("Customer","huangxp");
+        System.out.println("12345");
         c.setPath("/test");
         c.setMaxAge(123456879);
         response.addCookie(c);
