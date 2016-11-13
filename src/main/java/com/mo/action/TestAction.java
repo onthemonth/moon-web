@@ -97,6 +97,7 @@ public class TestAction {
     @RequestMapping(value = "/test/ftl")
     public ModelAndView test(HttpServletRequest request,HttpServletResponse response){
         System.out.println();
+        System.out.println();
         Cookie c=new Cookie("Customer","huangxp");
         System.out.println("12345");
         c.setPath("/test");
