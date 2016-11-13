@@ -3,6 +3,7 @@ package com.mo.action;
 
 import com.alibaba.dubbo.common.json.JSON;
 import com.mo.vo.CityVo;
+import com.mo.vo.Expert;
 import com.mo.vo.HelloVo;
 import com.mo.vo.ReturnVo;
 import com.moon.auth.entity.Depart;
@@ -276,6 +277,31 @@ public class TestAction {
         vo.setCode("00");
         vo.setMessage("登录成功");
         return vo;
+    }
+    @RequestMapping(value = "/test/toGetpeople")
+    public ModelAndView toGetPeople(){
+        return new ModelAndView("test05");
+    }
+    @RequestMapping(value = "/test/getPeople")
+    @ResponseBody
+    public ReturnVo getPeople(){
+        List<Expert> experts=new ArrayList<Expert>();
+        for (int i=0;i<6;i++){
+            Expert expert=new Expert();
+            expert.setName("姓名"+i);
+            expert.setCompany("公司" + i);
+            expert.setEducation("学历" + i);
+            expert.setExperience(i + "");
+            expert.setPosition("牙医");
+            expert.setSpecialty("修牙");
+            expert.setGrade("院长");
+            experts.add(expert);
+        }
+        ReturnVo returnVo=new ReturnVo();
+        returnVo.setData(experts);
+        returnVo.setCode("00");
+        returnVo.setMessage("请求成功");
+        return returnVo;
     }
    /* @RequestMapping(value = "/test/index")
     public ModelAndView index(){
