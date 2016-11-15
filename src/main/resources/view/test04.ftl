@@ -12,9 +12,16 @@
                 type: 'get',
                 url: "/test/getCity.htm",
                 success: function(val){
-                    //[{"cityId":"0","cityName":"城市名称0"},{"cityId":"1","cityName":"城市名称1"}]
-                    //{"message":null,"data":[{"cityId":"0","cityName":"城市名称0"},{"cityId":"1","cityName":"城市名称1"}],"code":"00"}
-                    //{"message":"成功","data":{"message":null,"data":[{"cityId":"0","cityName":"城市名称0"},{"cityId":"1","cityName":"城市名称1"}
+                    //[{"cityId":"0","cityName":"城市名称0"},
+                    // {"cityId":"1","cityName":"城市名称1"}]
+
+                    //{"message":null,
+                    // "data":[{"cityId":"0","cityName":"城市名称0"},
+                    // {"cityId":"1","cityName":"城市名称1"}],
+                    // "code":"00"}
+
+                    //{"message":"成功",
+                    // "data":{"message":null,"data":[{"cityId":"0","cityName":"城市名称0"},{"cityId":"1","cityName":"城市名称1"}
                     //],"code":"00"},"code":"00"}
 
 
