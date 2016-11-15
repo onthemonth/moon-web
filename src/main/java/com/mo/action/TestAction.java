@@ -309,4 +309,10 @@ public class TestAction {
         ModelAndView mv=new ModelAndView();
         mv.
     }*/
+
+    @RequestMapping(value = "/test/toJsp")
+    public ModelAndView toJsp(){
+        ModelAndView modelAndView=new ModelAndView("test_01");
+        return modelAndView;
+    }
 }
