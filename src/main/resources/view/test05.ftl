@@ -29,6 +29,7 @@
             $.ajax({
                 type: 'get',
                 url: "/test/getPeople.htm",
+                data:{}
                 success: function(val){
                     var code = val.code;
                     if(code=="00"){

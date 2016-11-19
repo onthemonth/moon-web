@@ -7,6 +7,7 @@ import com.mo.vo.Expert;
 import com.mo.vo.HelloVo;
 import com.mo.vo.ReturnVo;
 import com.moon.auth.entity.Depart;
+import com.moon.base.page.PageResult;
 import com.moon.dubbo.test.IDemoService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
@@ -285,9 +286,21 @@ public class TestAction {
     }
     @RequestMapping(value = "/test/getPeople")
     @ResponseBody
-    public ReturnVo getPeople(){
+    public ReturnVo getPeople(int pageIndex){
+        PageResult<Expert> pageResult=new PageResult<Expert>();
         List<Expert> experts=new ArrayList<Expert>();
-        for (int i=0;i<6;i++){
+        int pageSize=6;
+        pageResult.setPageSize(pageSize);
+        pageResult.setCurrentPage(pageIndex);
+        int currentPageLastIndex;
+        int rows=55;
+        pageResult.setRows(rows);
+        if(pageIndex>=pageResult.getAllPages()){
+            currentPageLastIndex=rows;
+        }else {
+            currentPageLastIndex=pageIndex*pageSize;
+        }
+        for (int i=(pageIndex-1)*pageSize;i<currentPageLastIndex;i++){
             Expert expert=new Expert();
             expert.setName("姓名"+i);
             expert.setCompany("公司" + i);
@@ -298,8 +311,10 @@ public class TestAction {
             expert.setGrade("院长");
             experts.add(expert);
         }
+
+        pageResult.setResult(experts);
         ReturnVo returnVo=new ReturnVo();
-        returnVo.setData(experts);
+        returnVo.setData(pageResult);
         returnVo.setCode("00");
         returnVo.setMessage("请求成功");
         return returnVo;
@@ -314,5 +329,39 @@ public class TestAction {
     public ModelAndView toJsp(){
         ModelAndView modelAndView=new ModelAndView("test_01");
         return modelAndView;
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        int pageIndex=6;
+        PageResult<Expert> pageResult=new PageResult<Expert>();
+        List<Expert> experts=new ArrayList<Expert>();
+        int pageSize=6;
+        int currentPageLastIndex;
+        int rows=55;
+        pageResult.setRows(rows);
+        if(pageIndex>=pageResult.getAllPages()){
+            currentPageLastIndex=rows;
+        }else {
+            currentPageLastIndex=pageIndex*pageSize;
+        }
+        for (int i=(pageIndex-1)*pageSize;i<currentPageLastIndex;i++){
+            Expert expert=new Expert();
+            expert.setName("姓名"+i);
+            expert.setCompany("公司" + i);
+            expert.setEducation("学历" + i);
+            expert.setExperience(i + "");
+            expert.setPosition("牙医");
+            expert.setSpecialty("修牙");
+            expert.setGrade("院长");
+            experts.add(expert);
+        }
+
+        pageResult.setResult(experts);
+        ReturnVo returnVo=new ReturnVo();
+        returnVo.setData(pageResult);
+        returnVo.setCode("00");
+        returnVo.setMessage("请求成功");
+        System.out.println(JSON.json(returnVo));
     }
 }
