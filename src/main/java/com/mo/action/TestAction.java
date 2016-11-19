@@ -364,4 +364,9 @@ public class TestAction {
         returnVo.setMessage("请求成功");
         System.out.println(JSON.json(returnVo));
     }
+
+    @RequestMapping(value = "/test/toDentist")
+    public ModelAndView toDentist(){
+        return new ModelAndView("/myl/dentist");
+    }
 }
