@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul class="page" id="page">
+    <li id="shouye" class="p-prev disabled">
+        <a href='javascript:indexpage(1);'>首 页</a>
+    </li>
+    <li id="shangyiye" class="p-prev disabled" >
+        <a href='javascript:indexpage(-1);'><i></i>上一页</a>
+    </li>
+    <li ><a id="one" href="javascript:void(0);" >1</a></li>
+    <li><a id="two" href="javascript:void(0);" >2</a></li>
+    <li><a id="three" href="javascript:void(0);" >3</a></li>
+    <li class="more"><a id="five" href="javascript:void(0);" >...</a></li>
+    <li><a id="fore" href="javascript:void(0);" >13855</a></li>
+    <li class='p-next'>
+        <a href='javascript:indexpage(-3);' onclick="jumpToPage('2','/goods/ajaxqueryGoodsList.do.html','','goodsListContainer','13855', listPageCallback);">下一页<i></i></a>
+    </li>
+    <li id="weiye" class='p-next'>
+        <a href='javascript:void(0);' onclick="indexpage(0);">尾 页</a>
+    </li>
+    <li class="total">
+      <span id="span_number">共13855页 到第<input type="text" id="input_number" class="page-txtbox" />页
+       <input name="" value="确定" type="button" onclick="jumpToPage(jQuery('#input_number').val(),'/goods/ajaxqueryGoodsList.do.html','','goodsListContainer','13855', listPageCallback);" class="page-btn"/>
+      </span>
+    </li>
+</ul>
+</body>
+</html>
