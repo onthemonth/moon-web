@@ -47,7 +47,7 @@
 
                              all += "<div class=info>"+
                             "<div class=image></div>"+
-                             "<p class=job><span>"+name+"</span> "+education+" "+grade+" "+position+"</p>"+
+                            "<p class=job><span>"+name+"</span> "+education+" "+grade+" "+position+"</p>"+
                             "<p>所属门诊："+company+"</p>"+
                             "<p>临床工作年限："+experience+"</p>"+
                             "<p>学科专长： "+specialty+"</p>"+
