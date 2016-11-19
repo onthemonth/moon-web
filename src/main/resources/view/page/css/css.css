@@ -1,0 +1,49 @@
+.container{
+    width: 980px;
+    margin: 0 auto;
+}
+/*header*/
+.header{
+    background: #eeeeee;
+    height: 50px;
+    width: 100%;
+}
+.header ul li{
+    float: left;
+    margin-right: 15px;
+    line-height: 50px;
+}
+.header ul li a{
+    color: #666;
+}
+
+.header ul li a:hover{
+    color: red;
+}
+.search-box{
+    width: 600px;
+    height: 70px;
+}
+.search-box a{
+    padding:5px 8px;
+
+}
+.active{
+    background: red;
+    color: white;
+}
+.search-box a:hover{
+    background: red;
+    color: white;
+}
+
+.search{
+    margin: 50px 0 0 0;
+}
+
+.search input{
+    width: 200px;
+    height: 20px;
+    border: solid;
+    color: red;
+}

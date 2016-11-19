@@ -57,13 +57,13 @@
     </bean>
 
     <!-- 设置JSP的配置文件路径 -->
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
-        <!--<property name="viewNames" value="*.jsp" />-->
+        &lt;!&ndash;<property name="viewNames" value="*.jsp" />&ndash;&gt;
         <property name="prefix" value="/WEB-INF/classes/view/jsp/"/>
         <property name="suffix" value=".jsp"/>
-        <property name="order" value="1"/><!--配置order-->
-    </bean>
+        <property name="order" value="1"/>&lt;!&ndash;配置order&ndash;&gt;
+    </bean>-->
 
     <!-- 文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
