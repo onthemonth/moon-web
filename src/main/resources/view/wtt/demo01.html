@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../static/js/jquery%201.7.js"></script>
+</head>
+
+<body>
+<select class="usertag">
+    <option value="allin">所有包含</option>
+    <option value="notin">不包含</option>
+    <option value="notin1">不包1含</option>
+</select>
+<select class="regtim">
+    <option value="allin">所有包含</option>
+    <option value="notin">不包含</option>
+    <option value="notin1">不包1含</option>
+</select>
+
+<script type="text/javascript">
+    var temp={
+        usertag:{
+            notin:'107'
+        },
+        regtime:{
+            allin:{
+                begin:'2011-01-01 12:00',
+                end:'2017-01-01 12:00'
+            }
+        }
+    };
+
+    for(var key in temp){
+        console.log(key)
+        var key2val=temp[key];
+        for(var inkey in key2val){
+            console.log(inkey);
+            $('select.'+key).find('option[value="'+inkey+'"]').attr("selected",'selected');
+            if(key2val[inkey].begin && key2val[inkey].end){
+                console.log(key2val[inkey].begin,key2val[inkey].end);
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

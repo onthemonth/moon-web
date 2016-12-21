@@ -8,7 +8,6 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/config.spring/service/spring-service.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/config.spring/web/spring-mvc.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/view/test.ftl" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/ftl/test.ftl" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

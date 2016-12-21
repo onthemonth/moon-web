@@ -369,4 +369,14 @@ public class TestAction {
     public ModelAndView toDentist(){
         return new ModelAndView("/myl/dentist");
     }
+
+    @RequestMapping(value = "/test/toSearch")
+    public ModelAndView toSearch(String content,String type){
+        System.out.println("内容："+content+";类型："+type);
+        ModelAndView modelAndView=new ModelAndView("search_test");
+        if (!StringUtils.isBlank(type)){
+            modelAndView.addObject("type",type);
+        }
+        return modelAndView;
+    }
 }
