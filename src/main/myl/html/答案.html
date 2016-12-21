@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery%201.7.js"></script>
+    <script>
+        $(function () {
+            $.fn.myPlugIn = function (options) {
+                options = options || {};
+                var name = this.attr("name") || options.id;
+                var val = options.id || this.val();
+                $("body").append("<span>"+name+"'5 value contains "+val.length+"characters</span>");
+                return this;
+            }
+            $("input").myPlugIn({id:"victor"});
+        })
+
+
+    </script>
+</head>
+<body>
+<input type="text" name="username" value="john">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="index.css"/>
+    <script src="../static/js/jquery%201.7.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#username").val($.cookie("username"));
+            if ($.cookie("like") == "刘德华") {
+                $(":radio[value='刘德华']").attr("checked", 'checked')
+            }
+            else {
+                $(":radio[value='张学友']").attr("checked", 'checked')
+            }
+            $(":button").click(function () {
+                $.cookie("username", $("#username").val(), {
+                    path: "/", expires: 7
+                });
+                $.cookie("like", $(":radio[checked]").val(), {
+                    path: "/", expires: 7
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<p><input type="text" id="username" value="" /></p>
+<p>
+    <input type="radio" name="like" value="刘德华" />刘德华
+    <input type="radio" name="like" value="张学友" />张学友
+</p>
+<p><input type="button" value="保存" /></p>
+</body>
+</html>

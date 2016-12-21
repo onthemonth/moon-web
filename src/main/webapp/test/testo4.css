@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul,li{
+    list-style-type:none;
+}
+.whole{
+    width: 500px;
+    height: 350px;
+    background-color: #fff;
+    margin: 100px auto;
+    border: 1px black solid;
+    overflow: scroll;
+    border-shadow: 3px 3px 3px  blue;
+}
+ .w{
+    width: 450px;
+    margin: 0 auto;
+}
+.whole .w .tit{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    /*font-weight: 600;*/
+    text-align: center;
+}
+.whole .w .change{
+    font-size: 15px;
+    font-weight: 300;
+}
+.whole .w .change p{
+    margin-top: 10px;
+}
+.whole .w .change span{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 2px cornflowerblue solid;
+    margin: 0 5px;
+}
+.whole .w ul span{
+    display: inline-block;
+    width: 63px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+    overflow : hidden;
+}
+.whole .w ul span:hover{
+    background-color:cornflowerblue ;
+}

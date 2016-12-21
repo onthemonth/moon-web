@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="itcast.js"></script>
+	</head>
+	<body>
+		<input type="text" value = "0" id="txt"/><br />
+		<input type="button" id="btn" value="点击" />
+	</body>
+	<script>
+		I( '#btn' ).click(function () {
+			I( '#txt' ).val( I( '#txt' ).val() - 0 + 1 + '' );
+		});
+		
+		
+	</script>
+</html>

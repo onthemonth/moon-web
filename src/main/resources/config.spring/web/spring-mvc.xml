@@ -26,6 +26,22 @@
     </mvc:annotation-driven>-->
     <mvc:default-servlet-handler/>
 
+    <!-- 配置双视图 -->
+    <!-- 配置freemarker视图解析器-->
+    <!-- 针对freemarker的视图配置 -->
+    <bean
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="cache" value="true" />
+        <property name="prefix" value="" />
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+        <property name="order" value="0"/><!-- 配置order -->
+    </bean>
+    <!--配置freemarker的模板路径-->
     <bean id="freemarkerConfig"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPaths">
@@ -46,26 +62,13 @@
         </property>
     </bean>
 
-    <!-- 针对freemarker的视图配置 -->
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="cache" value="true" />
-        <property name="prefix" value="" />
-        <property name="suffix" value=".ftl" />
-        <property name="contentType" value="text/html;charset=UTF-8"></property>
-        <property name="requestContextAttribute" value="request" />
-        <property name="exposeSpringMacroHelpers" value="true" />
-        <property name="exposeRequestAttributes" value="true" />
-        <property name="exposeSessionAttributes" value="true" />
-    </bean>
-
     <!-- 设置JSP的配置文件路径 -->
     <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="viewNames" value="*.jsp" />
-        <property name="prefix" value="/WEB-INF/classes/com/jsp"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+        &lt;!&ndash;<property name="viewNames" value="*.jsp" />&ndash;&gt;
+        <property name="prefix" value="/WEB-INF/classes/view/jsp/"/>
         <property name="suffix" value=".jsp"/>
-        <property name="order" value="1"/>
+        <property name="order" value="1"/>&lt;!&ndash;配置order&ndash;&gt;
     </bean>-->
 
     <!-- 文件上传 -->

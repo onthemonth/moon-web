@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #666;
+}
+.w{
+    width: 960px;
+    margin: 0 auto;
+}
+.nav{
+    height: 70px;
+    width: 100%;
+    background-color: #ffffff;
+}
+.banner{
+    background-color: red;
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+.banner .iform{
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    top: 150px;
+    left: 700px;
+}
+.banner .iform .validate{
+    width: 360px;
+    margin: 0 auto;
+    /*background-color:blue;*/
+}
+.banner .iform p {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+.banner .iform .validate .wrong{
+    width: 300px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: red;
+    border: 1px brown solid;
+    border-radius: 5px;
+    color: lavenderblush;
+    margin:20px 0 20px 30px ;
+    display: none;
+    background-color: bisque;
+
+}
+.banner .iform .validate .username{
+    width: 300px;
+    height: 30px;
+    margin-left:30px ;
+
+}
+.banner .iform .validate .password{
+    width: 300px;
+    height: 30px;
+    margin-top: 25px;
+    margin-left:30px ;
+}
+.banner .iform .validate .forget{
+    float: left;
+    font-size: 12px;
+    padding-left: 30PX;
+    margin: 10px 0 10px 0  ;
+
+}
+.banner .iform .validate .login{
+    float: right;
+    color: blue;
+    font-size: 12px;
+    padding-right: 25px;
+    margin: 10px 0 10px 0  ;
+}
+.banner .iform .validate .entry{
+    margin: 40px auto;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    background-color: red;
+    border-radius:5px ;
+    clear: both;
+    text-align: center;
+}
+
