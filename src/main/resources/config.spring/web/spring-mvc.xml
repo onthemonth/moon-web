@@ -18,6 +18,12 @@
         <property name="favorPathExtension" value="false" />
     </bean>
 
+<!--<mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>-->
     <mvc:default-servlet-handler/>
 
     <bean id="freemarkerConfig"
