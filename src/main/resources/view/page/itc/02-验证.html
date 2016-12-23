@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script src="itcast.js"></script>
-	</head>
-	<body>
-		<input type="text" value = "0" id="txt"/><br />
-		<input type="button" id="btn" value="点击" />
-	</body>
-	<script>
-		I( '#btn' ).click(function () {
-			I( '#txt' ).val( I( '#txt' ).val() - 0 + 1 + '' );
-		});
-		
-		
-	</script>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="pro_.js"></script>
+    <script src="../../../static/js/jquery%201.7.js"></script>
+</head>
+<script type="text/javascript">
+    console.log(typeof I);//function
+    console.log(typeof $);//function
+    console.log($.trim("ABC"));
+</script>
+<body>
+<!--
+
+s == 与 === 的区别[转]
+1、对于string,number等基础类型，==和===是有区别的
+1）不同类型间比较，==之比较“转化成同一类型后的值”看“值”是否相等，===如果类型不同，其结果就是不等
+2）同类型比较，直接进行“值”比较，两者结果一样
+2、对于Array,Object等高级类型，==和===是没有区别的
+进行“指针地址”比较
+3、基础类型与高级类型，==和===是有区别的
+1）对于==，将高级转化为基础类型，进行“值”比较
+2）因为类型不同，===结果为false
+
+js基础数据类型
+Undefined、Null、Boolean、Number和String
+
+-->
+<!-- 时钟 -->
+<!--<embed src="http://www.clocklink.com/clocks/0011-ltblue.swf?TimeZone=CCT&;" width="150" height="150" wmode="transparent" type="application/x-shockwave-flash">-->
+<input type="text" value="0" id="txt"/><br/>
+<input type="button" id="btn" value="点击"/>
+</body>
+<script>
+    I('#btn').click(function () {
+        I('#txt').val(I('#txt').val() - 0 + 1 + '');
+    });
+
+
+</script>
 </html>
