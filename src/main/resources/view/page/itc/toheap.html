@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>
+    <script type="text/javascript">
+        //http://www.cnblogs.com/wangfupeng1988/p/3977924.html
+        /******************************************************************/
+        //js基础数据类型
+        //Undefined、Boolean、Number和String
+        //对象都是通过函数创建的
+
+        //验证:对象都是通过函数创建的
+        //var ob = { a: 10, b: 20 };
+        //var arr = [5, 'x', true];
+        //以上两个对象实质上是:
+        var ob = new Object();
+        ob.a = 10;
+        ob.b = 20;
+
+        var arr = new Array();
+        arr[0] = 5;
+        arr[1] = 'x';
+        arr[2] = true;
+        console.log(typeof(Object));   // function
+        console.log(typeof(Array));   // function
+
+        //对象是函数创建的，而函数却又是一种对象——天哪！函数和对象到底是什么关系啊？
+        //别着急！揭开这个谜底，还得先去了解一下另一位老朋友——prototype原型
+
+        function show(x) {
+
+            console.log(typeof(x));    // undefined
+            console.log(typeof(10));   // number
+            console.log(typeof('abc')); // string
+            console.log(typeof(true));  // boolean
+            console.log(typeof(null));  // object
+            //函数就是对象的一种
+            console.log(typeof(function () { }));  //function
+            console.log(typeof Function);//function
+            //你可以说数组是对象的一种，因为数组就像是对象的一个子集一样。
+            // 但是函数与对象之间，却不仅仅是一种包含和被包含的关系，
+            // 函数和对象之间的关系比较复杂，甚至有一点鸡生蛋蛋生鸡的逻辑
+            console.log(typeof([1, 'a', true]));  //object
+            console.log(typeof ({ a: 10, b: 20 }));  //object
+            console.log(typeof (null));  //object
+            console.log(typeof (new Number(10)));  //object
+        }
+        show();
+        /******************************************************************/
+        /*
+
+         在一段js代码拿过来真正一句一句运行之前，浏览器已经做了一些“准备工作":
+         *  变量、函数表达式——变量声明，默认赋值为undefined；
+         this——赋值；
+         函数声明——赋值；
+         *
+         * */
+        console.log(this);//this  全局对象
+        console.log(Foo);//function Foo(){}
+        console.log(fu);//undefined
+        console.log(b);//undefined
+        console.log(c);//undefined
+        //console.log(a);//报错
+
+        function fn(x) {
+            console.log(arguments);//
+            console.log(x);
+        }
+        fn(10);
+        var b;
+        var c = 10;
+        var fu = function () {
+
+        };
+        /******************************************************************/
+        function Foo() {
+
+        }
+        var f1 = new Foo();
+        f1.a = 10;
+        Foo.prototype.a = 100;
+        Foo.prototype.b = 200;
+        console.log(f1.a);
+        console.log(f1.b);
+
+        var item;
+        for (item in f1) {
+            console.log(item);
+        }
+        for (var item2 in f1) {
+            if (f1.hasOwnProperty(item2)) {
+                console.log(item2);
+            }
+        }
+        /******************************************************************/
+        //给执行上下文环境下一个通俗的定义——在执行代码之前，把将要用到的所有的变量都事先拿出来，
+        // 有的直接赋值了，有的先用undefined占个空
+        var s = 15;
+        function fu2() {
+            console.log(s);
+        }
+        function bar(f) {
+            var s = 30;
+            f();//打印15
+        }
+        bar(fu2);
+
+        /******************************************************************/
+
+        /*
+         * demo01
+         */
+        function Foo2() {
+            this.name = "张三";
+            this.year = 1991;
+            console.log(this);
+        }
+        var fo2 = new Foo2();//Foo2 {name: "张三", year: 1991}
+        Foo2();//Window {external: Object, chrome: Object, document: document, b: undefined, c....
+        /*
+         * demo02
+         */
+        var obj = {
+            x: 10,
+            fn: function () {
+                console.log(this);
+                console.log(this.x);
+            }
+        };
+        //1
+        obj.fn();//Object {x: 10 ;fn:...}   10
+        //2
+        //如果fn函数被赋值到了另一个变量中，并没有作为obj的一个属性被调用，那么this的值就是window，this.x为undefined。
+        var fn1=obj.fn;
+        fn1();//Window   undefined
+        /******************************************************************/
+    </script>
+</head>
+<body>
+
+</body>
+</html>
