@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>
+    <script type="text/javascript">
+        //所有对象的创建都需要通过一个构造函数，虽然通过一个语法糖可以省略掉构造函数，但构造函数是确实存在的。
+        // 构造函数本身也是一个对象，我们可以称之为函数对象，函数对象也可以通过它的构造函数Function()来创建。
+        // JavaScript内置不少函数对象，如Object()、String()、Array()、Function()等，
+        // 它们既是对象，也可以作为构造函数用来构造其它的对象。除此之外，我们也可以定义自己的构造函数。
+
+        //文中讲到了prototype.constructor指向函数本身，我在看一些插件的源码的时候，总看到这样的代码
+        /*
+        var Colorpicker = function(element, options){...};
+        Colorpicker.prototype = {
+            constructor: Colorpicker,
+                ...
+        }
+
+        我不明白的是，prototype.constructor默认指向Colorpicker，为什么还要再指定一次呢？大牛帮忙解答下吧，多谢多谢~
+*/
+/*
+* Colorpicker.prototype = ｛...｝
+ 这句话相当于把Colorpicker.prototype覆盖了。Colorpicker.prototype一开始本身是有一个constructor指向Colorpicker函数，
+ 但是你一覆盖不就全没了吗？所以要在覆盖后的对象中，再重新写一个 constructor: Colorpicker,
+* */
+
+            //http://www.cnblogs.com/wangfupeng1988/p/3977924.html
+        function Fn() {
+            this.name = '王福朋';
+            this.year = 1988;
+        }
+        Fn.prototype.year=121;
+        console.log(new Fn().year);
+        console.log(Fn.year);
+//        console.log(x);
+//        function x(){
+//
+//        }
+//        var x=10;
+        //
+//        function mgq(){
+//            console.log("mgq");
+//        }
+//        mgq.extend= function (e) {
+//            console.log("mgq extend");
+//        };
+//        mgq.extend({
+//            a:function(){
+//                console.log("extend")
+//            }
+//        });
+//        mgq.extend();
+//        var s=new mgq();
+
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

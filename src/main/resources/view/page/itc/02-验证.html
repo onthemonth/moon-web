@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>vbv</title>
     <script src="pro_.js"></script>
     <script src="../../../static/js/jquery%201.7.js"></script>
 </head>
@@ -30,14 +30,16 @@ Undefined、Null、Boolean、Number和String
 -->
 <!-- 时钟 -->
 <!--<embed src="http://www.clocklink.com/clocks/0011-ltblue.swf?TimeZone=CCT&;" width="150" height="150" wmode="transparent" type="application/x-shockwave-flash">-->
-<input type="text" value="0" id="txt"/><br/>
+<input type="text" value="1" id="txt"/><br/>
 <input type="button" id="btn" value="点击"/>
 </body>
 <script>
-    I('#btn').click(function () {
-        I('#txt').val(I('#txt').val() - 0 + 1 + '');
-    });
 
+    var a=I("#txt").val();
+    console.log(a);
+//    I('#btn').click(function () {
+//        I('#txt').val(I('#txt').val() - 0 + 1 + '');
+//    });
 
 </script>
 </html>

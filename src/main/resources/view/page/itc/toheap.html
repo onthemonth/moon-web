@@ -15,10 +15,15 @@
         //var arr = [5, 'x', true];
         //以上两个对象实质上是:
         var ob = new Object();
+        Object.prototype;
+        Object.__proto__;
+        console.log(ob.__proto__);
+        console.log(ob.__proto__===Object.prototype);//true
         ob.a = 10;
         ob.b = 20;
 
         var arr = new Array();
+        Array.prototype;
         arr[0] = 5;
         arr[1] = 'x';
         arr[2] = true;
@@ -46,6 +51,7 @@
             console.log(typeof (null));  //object
             console.log(typeof (new Number(10)));  //object
         }
+        show.prototype;
         show();
         /******************************************************************/
         /*
