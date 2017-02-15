@@ -4,6 +4,8 @@
 
 // 定义Mgq构造函数
     function Mgq(selector) {
+        console.log(Mgq.fn.init);
+        console.log(Mgq.fn.init.prototype);
         return new Mgq.fn.init(selector);
     }
 
