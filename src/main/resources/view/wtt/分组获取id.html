@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分组获取id</title>
+    <style>
+        li{
+            cursor: pointer;
+            height: 34px;
+           line-height: 34px;
+
+        }
+        .on{background: red;}
+        .modal-tag a{
+            display: inline-block;padding: 5px;
+            border: 1px solid green;
+            margin-right: 10px;
+        }
+        .modal-tag .close{
+            cursor: pointer;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul data-class="men1">
+
+    <li data-value="tg">天宫</li>
+    <li data-value="bd">百度</li>
+    <li data-value="mt">美团</li>
+    <li data-value="tb">淘宝</li>
+    <div class="modal-tag">
+
+    </div>
+</ul>
+<ul data-class="men2">
+    <li data-value="sp">商派1</li>
+    <li data-value="bd1">百度1</li>
+    <li data-value="bd">美团1</li>
+    <li data-value="tb1">淘宝1</li>
+    <div class="modal-tag">
+
+    </div>
+</ul>
+<ul data-class="men3">
+    <li data-value="sp">商派2</li>
+    <li data-value="bd2">百度2</li>
+    <li data-value="mt2">美团2</li>
+    <li data-value="tb2">淘宝2</li>
+    <div class="modal-tag">
+
+    </div>
+</ul>
+
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var _idArray=[];
+        var str='';
+        $('body')
+                .on('click','li',function(){
+            var _id = $(this).attr('data-value');
+            var _pd = $(this).parent();
+            if(!$(this).hasClass('on')){
+                $(this).addClass('on');
+                _pd.find('.modal-tag').append('<a id="'+_id+'">'+$(this).html()+'<span class="close">删除</span></a>');
+            }else{
+                return false;
+            }
+        })
+                .on('click','.close',function(){
+                    var _id = $(this).parent('a').attr('id');
+                    var _pd = $(this).parents('.modal-tag');
+                    _pd.siblings('li[data-value="'+_id+'"]').removeClass('on');
+                    $(this).parent('a').remove();
+
+                })
+    })
+</script>
+</body>
+</html>
