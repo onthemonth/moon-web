@@ -1,17 +1,19 @@
 package com.mo.action;
 
-import com.mo.util.ImportExcelUtil;
+import com.mo.util.ProducerClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -39,23 +41,57 @@ public class ImportExcelAction {
 
 
     @RequestMapping(value = "/batchImprot")
-    public String batchImport(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    @ResponseBody
+    public Map batchImport(HttpServletRequest request,HttpServletResponse response) throws Exception {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
-        System.out.println("通过 jquery.form.js 提供的ajax方式上传文件！");
-        String path = "E:\\demo";
-        //容错处理
-        File dir = new File(path);
-        if(!dir.exists()) {
-            dir.mkdirs();
+        MultipartFile multipartFile = multipartRequest.getFile("file");
+        String sourceName = multipartFile.getOriginalFilename(); // 原始文件名
+        String fileType = sourceName.substring(sourceName.lastIndexOf("."));
+        //System.out.println("上传的文件名为:"+sourceName+"类型为:"+fileType);
+        //System.out.println("项目Id为:"+proId+"项目名称为:"+proName);
+        String base = request.getSession().getServletContext().getRealPath("/WEB-INF/views/upload");
+        File file = new File(base);
+        if(!file.exists()){
+            file.mkdirs();
         }
-        String fileName = excelFile.getOriginalFilename();//report.xls
-        String fileName2 = excelFile.getName();//excelFile
+        String path=base + File.separator + sourceName;
+        File file_d=new File(path);
+        multipartFile.transferTo(file_d);
+        //service.insert("insertAttachment", attach);
+        //上传成功后读取Excel表格里面的数据
+        System.out.println("路径是"+path);
+        // File read=new File(path);
 
-        InputStream fis = excelFile.getInputStream();
+        File read=new File(path);
+        Map<String,String> map= new HashMap<>();
+        /**
+         * 模拟导入-垂直导入excel
+         */
+        //map= ImportExcelUtil.readExcelTest(path);
+        /**
+         * 模拟导入-使用消息队列   直接把文件作为消息传到server，然后由消费者接受
+         */
+        sendFile2Mq(path);
+        for (int i = 0; i < 10; i++) {
+            map.put(i+"",i+"");
+        }
+        return map;
+    }
 
-        List<Map<String, String>> data = ImportExcelUtil.parseExcel(fis);
-        //解析到的数据就可以做一些数据库的插入操作了……
-        return null;
+    /**
+     * 传递文件到消息服务
+     * @param path 地址
+     */
+    private void sendFile2Mq(String path)throws Exception{
+        InputStream is =new FileInputStream(path);
+        byte[] buffer=new byte[8192];
+        byte[] message=new byte[8192];
+        int length=0;
+        while(-1!=(length=is.read(buffer, 0, 8192))){
+            System.arraycopy(buffer,0,message,0, length);
+        }
+        ProducerClient.produceMsgToChannel("mgq_test_file",message);
+        is.close();
     }
 }

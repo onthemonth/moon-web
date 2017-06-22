@@ -2,6 +2,7 @@ package com.mo.action;
 
 
 import com.alibaba.dubbo.common.json.JSON;
+import com.mo.util.ProducerClient;
 import com.mo.vo.CityVo;
 import com.mo.vo.Expert;
 import com.mo.vo.HelloVo;
@@ -67,6 +68,29 @@ public class TestAction {
         }
         return "index";
     }
+
+    /**
+     * 测试rabbitmq
+     * @param routingKey key
+     * @return 视图
+     */
+    @RequestMapping(value = "/toRabbitMq/{routingKey}")
+    public ModelAndView toRabbitMq(@PathVariable String routingKey){
+
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("routingKey",routingKey);
+        modelAndView.setViewName("ftl/rabbitmq_test");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/rabbitMq/execute")
+    @ResponseBody
+    public String execute(String userName,String age,String sex) throws Exception {
+        ProducerClient.produceMsgToChannel("mgq_test",(userName+"-"+age+"-"+sex).getBytes("UTF-8"));
+        return "success";
+    }
+
+
 
     private String createSign(List<String> paramsList){
         String params = "";
@@ -153,6 +177,8 @@ public class TestAction {
                     '}';
         }
     }
+
+
 
     // /ajax/a   即返回a
     @RequestMapping(value = "/ajax/{name:[a-z]+}")

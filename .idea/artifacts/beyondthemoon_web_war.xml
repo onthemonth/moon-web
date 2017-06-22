@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="beyondthemoon-web:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="com.moon.war">
-      <element id="artifact" artifact-name="beyondthemoon-web:war exploded" />
-    </root>
-  </artifact>
-</component>

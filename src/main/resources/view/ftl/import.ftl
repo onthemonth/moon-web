@@ -48,7 +48,7 @@
   <table>
     <tr>
       <td>上传文件: </td>
-      <td> <input id="upfile" type="file" name="upfile"></td>
+      <td> <input id="upfile" type="file" name="file"></td>
     </tr>
     <tr>
       <td><input type="submit" value="提交" onclick="return checkData()"></td>

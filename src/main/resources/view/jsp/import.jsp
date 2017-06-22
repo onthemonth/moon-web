@@ -32,7 +32,7 @@
 
     //JS校验form表单信息
     function checkData(){
-      var fileDir = $("#upfile").val();
+      var fileDir = $("#file").val();
       var suffix = fileDir.substr(fileDir.lastIndexOf("."));
       if("" == fileDir){
         alert("选择需要导入的Excel文件！");
@@ -53,7 +53,7 @@
   <table>
     <tr>
       <td>上传文件: </td>
-      <td> <input id="upfile" type="file" name="upfile"></td>
+      <td> <input id="file" type="file" name="file"></td>
     </tr>
     <tr>
       <td><input type="submit" value="提交" onclick="return checkData()"></td>
